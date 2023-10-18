@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         "light-brown": "#B3978B",
         "dark-brown": "#614233",
+        "tan-brown": "#F4F2E9",
+        "tan-dark-brown": "#D4D1BB",
+        "idx-discover-begin-gradient": "#C3C0AB",
+        "idx-discover-end-gradient": "#E1DDC7",
       },
       spacing: {
         "25%": "25%",

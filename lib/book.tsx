@@ -1,6 +1,6 @@
-export async function getBookData() {
+export const getBookData = async (subjectType: string) => {
   const res = await fetch(
-    "https://openlibrary.org/works/OL45804W/editions.json",
+    `https://openlibrary.org/subjects/${subjectType}.json?limit=5`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -10,4 +10,4 @@ export async function getBookData() {
   const data = await res.json();
 
   return data;
-}
+};

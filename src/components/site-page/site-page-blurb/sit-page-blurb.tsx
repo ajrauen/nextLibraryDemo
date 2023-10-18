@@ -7,11 +7,11 @@ interface SiteHeaderProps {
 
 const SitePageBlurb = (props: SiteHeaderProps) => {
   return (
-    <main className="flex flex-col w-96 mr-11">
+    <div className="flex flex-col w-96 mr-11 w-6/12">
       <div className="text-xl">{props.title}</div>
 
       <p className="text-sm	py-3">{props.text}</p>
-    </main>
+    </div>
   );
 };
 

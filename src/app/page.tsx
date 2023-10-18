@@ -1,21 +1,30 @@
 import SitePageHeader from "@/components/site-page/site-page-header/site-page-header";
-import Image from "next/image";
-import { getBookData } from "../../lib/book";
 import SitePageBlurb from "@/components/site-page/site-page-blurb/sit-page-blurb";
+import Discover from "@/components/site-page/discover/discover";
 
 const Home = async () => {
-  const posts = await getBookData();
-  console.log(posts);
-
   return (
     <main className="flex flex-col min-w-[1000px]">
       <SitePageHeader />
-      <div className="flex w-full  justify-center">
-        <div className="flex w-6/12 py-3">
+      <div className="flex w-full  flex=row">
+        <div className="flex flex=col mx-auto w-6/12  max-w-2xl">
           {blurbData.map((data) => (
             <SitePageBlurb title={data.title} text={data.text} />
           ))}
         </div>
+      </div>
+      <div className="flex w-full flex-col">
+        <Discover
+          subject="science"
+          becauseText="Because Aj liked"
+          discoveredPronoun="He"
+        />
+        <Discover
+          subject="history"
+          becauseText="Because Megan liked"
+          discoveredPronoun="She"
+          hideQuestion={true}
+        />
       </div>
     </main>
   );
