@@ -15,9 +15,17 @@ const config: Config = {
         "tan-dark-brown": "#D4D1BB",
         "idx-discover-begin-gradient": "#C3C0AB",
         "idx-discover-end-gradient": "#E1DDC7",
+        white: "#FFFFFF",
+        "off-white": "rgba(255,255,255,0)",
       },
       spacing: {
         "25%": "25%",
+      },
+      fontFamily: {
+        copern: ["Copernicus", "Libre Baskerville", "Georgia", "serif"],
+      },
+      minWidth: {
+        pageWidth: "126rem",
       },
     },
   },

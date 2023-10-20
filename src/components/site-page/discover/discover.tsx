@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { getBookData } from "../../../../lib/book";
+import { getDiscoverBooksData } from "../../../../lib/book";
 import DiscoveryBook from "./discovery-book/discovery-book";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 interface DiscoverProps {
   subject: string;
@@ -10,7 +12,7 @@ interface DiscoverProps {
 }
 
 const Discover = async ({ hideQuestion = false, ...props }: DiscoverProps) => {
-  const books = await getBookData(props.subject);
+  const books = await getDiscoverBooksData(props.subject);
   const lastBook = books?.works?.splice(books.length - 1, 1)[0];
 
   // some subjects can be ridiculously long, so get 3 of them that are of length 10 or less
@@ -31,7 +33,10 @@ const Discover = async ({ hideQuestion = false, ...props }: DiscoverProps) => {
         `${subjectItem}${idx < 2 ? ", " : ""}`
     );
 
-  console.log();
+  const navigateToBook = (isbn: string) => {
+    console.log(isbn);
+    redirect(`/books/${isbn}`);
+  };
 
   return (
     <div className="mx-auto w-6/12 max-w-2xl ">
@@ -51,7 +56,9 @@ const Discover = async ({ hideQuestion = false, ...props }: DiscoverProps) => {
         </div>
         <div className="flex flex row">
           {books?.works?.map((book: any) => (
-            <DiscoveryBook id={book.cover_id} key={book.id} />
+            <Link href={`/book/${book.key.split("/")[2]}`} scroll={false}>
+              <DiscoveryBook id={book.cover_id} key={book.key} />
+            </Link>
           ))}
 
           <div className="mx-2.5 mx-2.5 my-auto relative top-3">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="	min-w-[40rem]">{children}</body>
+      <body className="">
+        <div>Header</div>
+        <div className="p-10 max-w-pageWidth w-11/12">{children}</div>
+      </body>
     </html>
   );
 }
